@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#123f2b" />
+  <meta name="description" content="JOEJA BRAND-UP — pendampingan branding dan pengembangan bisnis untuk UMKM Daerah Istimewa Yogyakarta." />
+  <title>JOEJA BRAND-UP | Tumbuh Bersama UMKM Jogja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #123f2b;
+      --green-2: #1d5a3b;
+      --green-3: #eaf1e9;
+      --gold: #c77b2c;
+      --gold-2: #e5b56e;
+      --cream: #fbf8f0;
+      --paper: #fffdf8;
+      --ink: #20342a;
+      --muted: #65736a;
+      --line: #e8e4d9;
+      --shadow: 0 18px 55px rgba(18,63,43,.10);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: "DM Sans", sans-serif; line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    .container { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+    .topline { height: 5px; background: linear-gradient(90deg, var(--green), var(--gold), var(--green)); }
+    header { position: sticky; top: 0; z-index: 50; background: rgba(255,253,248,.93); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(18,63,43,.09); }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 220px; }
+    .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; color: #fff; background: var(--green); border: 2px solid var(--gold-2); font-family: Georgia,serif; font-weight: 700; font-size: 19px; }
+    .brand-name { font-family: "Playfair Display",serif; font-weight: 800; color: var(--green); font-size: 19px; line-height: 1.1; letter-spacing: .4px; }
+    .brand-name small { display: block; margin-top: 4px; color: var(--gold); font: 700 9px "DM Sans",sans-serif; letter-spacing: 1.4px; }
+    .nav-links { display: flex; align-items: center; gap: 27px; color: #43584b; font-size: 13px; font-weight: 700; }
+    .nav-links a { transition: color .2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta, .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 13px 20px; border-radius: 999px; font-weight: 700; font-size: 13px; border: 1px solid transparent; transition: transform .2s, box-shadow .2s, background .2s; cursor: pointer; }
+    .nav-cta, .btn-primary { color: white; background: var(--green); box-shadow: 0 8px 22px rgba(18,63,43,.18); }
+    .nav-cta:hover, .btn-primary:hover { background: var(--green-2); transform: translateY(-2px); box-shadow: 0 12px 26px rgba(18,63,43,.23); }
+    .btn-outline { color: var(--green); border-color: rgba(18,63,43,.28); background: rgba(255,255,255,.6); }
+    .btn-outline:hover { background: var(--green-3); transform: translateY(-2px); }
+    .menu-toggle { display: none; border: 0; background: transparent; color: var(--green); font-size: 25px; cursor: pointer; }
+    .hero { position: relative; overflow: hidden; padding: 78px 0 76px; background: radial-gradient(circle at 85% 15%, rgba(229,181,110,.18), transparent 28%), linear-gradient(135deg,#f8f5e9 0%,#fffdf8 56%,#edf3e9 100%); }
+    .hero:before { content: ""; position: absolute; inset: 0; opacity: .12; pointer-events: none; background-image: radial-gradient(var(--gold) .7px,transparent .7px); background-size: 18px 18px; mask-image: linear-gradient(90deg,black,transparent 75%); }
+    .hero-grid { position: relative; display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 45px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; font-size: 10px; font-weight: 800; }
+    .eyebrow:before { content: ""; width: 28px; height: 1px; background: var(--gold); }
+    h1,h2,h3 { font-family: "Playfair Display", Georgia, serif; color: var(--green); line-height: 1.15; }
+    h1 { margin: 18px 0 20px; font-size: clamp(40px,5.2vw,67px); letter-spacing: -1.7px; }
+    h1 em { color: var(--gold); font-style: normal; }
+    .hero-copy { max-width: 570px; color: #5b6a60; font-size: 16px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .hero-note { display: flex; align-items: center; gap: 12px; margin-top: 32px; color: var(--muted); font-size: 12px; }
+    .hero-note strong { color: var(--green); }
+    .hero-art { position: relative; min-height: 420px; display: grid; place-items: center; }
+    .art-frame { width: 100%; max-width: 540px; border-radius: 34px; overflow: hidden; background: #e9eddf; box-shadow: var(--shadow); border: 1px solid rgba(18,63,43,.12); }
+    .art-frame svg { display: block; width: 100%; height: auto; }
+    .art-caption { position: absolute; bottom: 2px; left: 5px; padding: 12px 17px; background: rgba(255,253,248,.94); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); font-size: 11px; color: var(--muted); }
+    .art-caption strong { display: block; color: var(--green); font-size: 13px; }
+    .floating-seal { position: absolute; right: -5px; top: 15px; width: 86px; height: 86px; display: grid; place-items: center; text-align: center; border-radius: 50%; background: var(--gold); color: white; border: 5px solid #f9f3e5; font-family: Georgia,serif; font-size: 12px; line-height: 1.15; transform: rotate(9deg); box-shadow: 0 10px 25px rgba(199,123,44,.25); }
+    .trust-strip { background: var(--green); color: #fff; }
+    .trust-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 25px; padding: 22px 0; }
+    .trust-item { display: flex; align-items: center; justify-content: center; gap: 12px; text-align: left; }
+    .trust-icon { color: var(--gold-2); font-size: 22px; }
+    .trust-item strong { display: block; font-size: 13px; }
+    .trust-item span:last-child { display: block; color: rgba(255,255,255,.68); font-size: 10px; }
+    section { padding: 86px 0; }
+    .section-head { max-width: 690px; margin: 0 auto 42px; text-align: center; }
+    .section-head .eyebrow { justify-content: center; }
+    h2 { margin: 13px 0 13px; font-size: clamp(30px,4vw,43px); letter-spacing: -.8px; }
+    .section-head p { margin: 0; color: var(--muted); font-size: 14px; }
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 55px; }
+    .about-visual { position: relative; padding: 20px; background: var(--green-3); border-radius: 30px; }
+    .about-visual svg { width: 100%; display: block; border-radius: 20px; }
+    .about-tag { position: absolute; right: -15px; bottom: 38px; background: var(--gold); color: white; padding: 14px 18px; border-radius: 14px; font-weight: 700; font-size: 12px; box-shadow: var(--shadow); }
+    .about-copy h2 { margin-top: 12px; }
+    .about-copy p { color: var(--muted); font-size: 14px; }
+    .check-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 18px; margin: 24px 0 0; padding: 0; list-style: none; }
+    .check-list li { display: flex; gap: 10px; color: #42574a; font-size: 13px; }
+    .check { flex: 0 0 20px; width: 20px; height: 20px; display: grid; place-items: center; border-radius: 50%; background: #e6efe4; color: var(--green); font-size: 12px; font-weight: 800; }
+    .soft-bg { background: var(--cream); }
+    .service-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .service-card { position: relative; padding: 27px 25px; min-height: 225px; background: white; border: 1px solid var(--line); border-radius: var(--radius); transition: transform .25s, box-shadow .25s, border-color .25s; }
+    .service-card:hover { transform: translateY(-7px); box-shadow: var(--shadow); border-color: rgba(199,123,44,.45); }
+    .service-icon { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 15px; background: var(--green-3); color: var(--green); font-size: 22px; }
+    .service-card h3 { margin: 19px 0 9px; font-size: 20px; }
+    .service-card p { margin: 0; color: var(--muted); font-size: 12px; }
+    .service-number { position: absolute; top: 25px; right: 25px; color: #d9ded5; font-family: Georgia,serif; font-size: 26px; }
+    .process-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 14px; counter-reset: step; }
+    .process-card { position: relative; padding: 24px 18px; border-radius: 18px; background: white; border: 1px solid var(--line); }
+    .process-card:before { counter-increment: step; content: "0" counter(step); display: inline-grid; place-items: center; width: 37px; height: 37px; border-radius: 50%; background: var(--green); color: white; font-family: Georgia,serif; font-weight: 700; font-size: 13px; }
+    .process-card h3 { margin: 17px 0 8px; font-size: 18px; }
+    .process-card p { margin: 0; color: var(--muted); font-size: 11px; }
+    .process-card:not(:last-child):after { content: "›"; position: absolute; right: -13px; top: 31px; z-index: 2; width: 25px; height: 25px; display: grid; place-items: center; border-radius: 50%; background: var(--gold); color: white; font-size: 22px; }
+    .segments-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .segment-panel { padding: 30px; border-radius: 24px; background: white; border: 1px solid var(--line); }
+    .segment-panel h3 { margin: 0 0 17px; font-size: 22px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 9px; }
+    .chip { padding: 9px 13px; border-radius: 999px; background: var(--green-3); color: var(--green); font-size: 11px; font-weight: 700; }
+    .chip.gold { background: #fbefdf; color: #9c5d20; }
+    .feature-band { padding: 0 0 86px; }
+    .feature-inner { position: relative; overflow: hidden; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 25px; padding: 42px 48px; border-radius: 28px; background: var(--green); color: white; }
+    .feature-inner:after { content: "✦"; position: absolute; right: 210px; top: -70px; color: rgba(255,255,255,.07); font-size: 230px; }
+    .feature-inner h2 { position: relative; z-index: 1; margin: 0 0 10px; color: white; font-size: 31px; }
+    .feature-inner p { position: relative; z-index: 1; max-width: 670px; margin: 0; color: rgba(255,255,255,.72); font-size: 13px; }
+    .feature-inner .btn { position: relative; z-index: 2; white-space: nowrap; background: var(--gold); color: white; }
+    .feature-inner .btn:hover { background: #d68b3c; transform: translateY(-2px); }
+
+    .subscription-section { background: linear-gradient(180deg,#fbf8f0 0%,#f2f5ed 100%); }
+    .subscription-intro { max-width: 760px; margin: -18px auto 34px; text-align: center; color: var(--muted); font-size: 13px; }
+    .billing-switch { display: flex; justify-content: center; align-items: center; gap: 8px; margin: 0 auto 30px; }
+    .billing-switch button { border: 1px solid #d9e1d5; padding: 9px 16px; border-radius: 999px; color: var(--green); background: white; cursor: pointer; font-size: 11px; font-weight: 700; transition: .2s; }
+    .billing-switch button.active { color: white; background: var(--green); border-color: var(--green); box-shadow: 0 6px 16px rgba(18,63,43,.15); }
+    .billing-switch .billing-hint { color: var(--gold); font-size: 10px; font-weight: 700; }
+    .plan-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; align-items: stretch; }
+    .plan-card { position: relative; display: flex; flex-direction: column; padding: 29px 25px 25px; background: rgba(255,255,255,.94); border: 1px solid var(--line); border-radius: 23px; box-shadow: 0 10px 30px rgba(18,63,43,.045); transition: transform .25s, box-shadow .25s, border-color .25s; }
+    .plan-card:hover { transform: translateY(-7px); box-shadow: var(--shadow); border-color: rgba(199,123,44,.5); }
+    .plan-card.featured { border: 2px solid var(--gold); box-shadow: 0 16px 38px rgba(199,123,44,.13); }
+    .plan-ribbon { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); padding: 6px 14px; border-radius: 999px; background: var(--gold); color: white; font-size: 9px; font-weight: 800; letter-spacing: 1px; white-space: nowrap; }
+    .plan-kicker { color: var(--gold); font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
+    .plan-card h3 { margin: 9px 0 7px; font-size: 25px; }
+    .plan-desc { min-height: 42px; margin: 0; color: var(--muted); font-size: 11px; }
+    .plan-price { margin: 20px 0 4px; color: var(--green); font-family: "Playfair Display",Georgia,serif; font-size: 25px; font-weight: 700; }
+    .plan-period { color: #8a958c; font-size: 10px; }
+    .plan-divider { height: 1px; margin: 20px 0; background: var(--line); }
+    .plan-features { display: grid; gap: 11px; margin: 0 0 25px; padding: 0; list-style: none; flex: 1; }
+    .plan-features li { display: flex; gap: 9px; color: #526257; font-size: 11px; }
+    .plan-features li span { color: var(--green-2); font-weight: 900; }
+    .plan-card .btn { width: 100%; }
+    .plan-note { max-width: 800px; margin: 25px auto 0; padding: 15px 18px; border: 1px dashed #d9c39f; border-radius: 14px; background: rgba(255,255,255,.58); color: #6d756d; font-size: 10px; text-align: center; }
+    .subscription-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top: 35px; }
+    .subscription-step { padding: 17px; border-radius: 15px; background: rgba(255,255,255,.72); border: 1px solid rgba(18,63,43,.08); }
+    .subscription-step strong { display: block; margin-bottom: 5px; color: var(--green); font-size: 11px; }
+    .subscription-step span { color: var(--muted); font-size: 10px; }
+    .membership-perks { display: flex; justify-content: center; flex-wrap: wrap; gap: 9px; margin-top: 25px; }
+    .membership-perks span { padding: 8px 12px; border-radius: 999px; background: #e7eee3; color: var(--green); font-size: 10px; font-weight: 700; }
+
+    .contact-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 50px; align-items: start; }
+    .contact-copy h2 { margin-top: 12px; }
+    .contact-copy p { color: var(--muted); font-size: 14px; }
+    .contact-detail { display: flex; gap: 13px; align-items: center; margin-top: 20px; }
+    .contact-detail .service-icon { width: 42px; height: 42px; font-size: 18px; }
+    .contact-detail strong { display: block; color: var(--green); font-size: 12px; }
+    .contact-detail span { color: var(--muted); font-size: 11px; }
+    .contact-form { padding: 30px; background: white; border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .field { display: flex; flex-direction: column; gap: 7px; margin-bottom: 15px; }
+    .field.full { grid-column: 1/-1; }
+    label { color: #405448; font-size: 11px; font-weight: 700; }
+    input,select,textarea { width: 100%; padding: 13px 14px; border: 1px solid #e2e6dd; border-radius: 11px; outline: none; color: var(--ink); background: #fdfdf9; font-size: 12px; transition: border .2s, box-shadow .2s; }
+    input:focus,select:focus,textarea:focus { border-color: var(--green-2); box-shadow: 0 0 0 3px rgba(29,90,59,.09); }
+    textarea { min-height: 105px; resize: vertical; }
+    .form-note { margin: 12px 0 0; color: #89948b; font-size: 10px; }
+    footer { padding: 45px 0 22px; background: #0d3020; color: white; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 35px; padding-bottom: 32px; }
+    .footer-brand { color: white; font: 800 23px "Playfair Display",serif; }
+    .footer-brand span { display: block; margin-top: 5px; color: var(--gold-2); font: 700 9px "DM Sans",sans-serif; letter-spacing: 1.5px; }
+    footer p, footer a { color: rgba(255,255,255,.65); font-size: 11px; }
+    footer h4 { margin: 0 0 13px; color: var(--gold-2); font-size: 12px; }
+    .footer-links { display: grid; gap: 8px; }
+    .footer-links a:hover { color: white; }
+    .copyright { padding-top: 18px; border-top: 1px solid rgba(255,255,255,.13); color: rgba(255,255,255,.45); font-size: 10px; text-align: center; }
+    .back-top { position: fixed; right: 22px; bottom: 22px; z-index: 40; width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: 50%; background: var(--gold); color: white; font-size: 19px; box-shadow: 0 8px 22px rgba(0,0,0,.16); cursor: pointer; opacity: 0; pointer-events: none; transform: translateY(10px); transition: .2s; }
+    .back-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .wa-float { position: fixed; left: 22px; bottom: 22px; z-index: 40; display: inline-flex; align-items: center; gap: 9px; padding: 12px 17px; border-radius: 999px; background: #1f9b59; color: white; box-shadow: 0 8px 22px rgba(0,0,0,.15); font-size: 11px; font-weight: 700; }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { *,*:before,*:after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 900px) {
+      .nav-links { gap: 15px; font-size: 11px; }
+      .hero-grid { gap: 25px; }
+      .hero-art { min-height: 340px; }
+      .process-grid { grid-template-columns: repeat(3,1fr); }
+      .plan-grid { grid-template-columns: 1fr 1fr; }
+      .plan-card.featured { grid-column: span 2; }
+      .subscription-steps { grid-template-columns: 1fr 1fr; }
+      .process-card:nth-child(3):after { display: none; }
+    }
+    @media (max-width: 700px) {
+      .container { width: min(100% - 30px, 560px); }
+      .nav { min-height: 68px; }
+      .menu-toggle { display: block; }
+      .nav-cta { display: none; }
+      .nav-links { display: none; position: absolute; left: 15px; right: 15px; top: 68px; padding: 18px; flex-direction: column; align-items: stretch; gap: 0; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 11px 8px; border-bottom: 1px solid var(--line); }
+      .nav-links a:last-child { border: 0; }
+      .hero { padding: 54px 0 52px; }
+      .hero-grid,.about-grid,.contact-grid { grid-template-columns: 1fr; }
+      .hero-grid { gap: 30px; }
+      .hero-art { min-height: 0; padding: 0 6px 18px; }
+      .floating-seal { right: -3px; top: -12px; width: 72px; height: 72px; font-size: 10px; }
+      .art-caption { bottom: 0; left: 0; }
+      section { padding: 65px 0; }
+      .trust-grid { grid-template-columns: 1fr; gap: 15px; }
+      .trust-item { justify-content: flex-start; }
+      .service-grid { grid-template-columns: 1fr 1fr; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .process-card:after { display: none !important; }
+      .segments-wrap { grid-template-columns: 1fr; }
+      .plan-grid { grid-template-columns: 1fr; }
+      .plan-card.featured { grid-column: auto; }
+      .subscription-steps { grid-template-columns: 1fr 1fr; }
+      .feature-inner { grid-template-columns: 1fr; padding: 32px 25px; }
+      .feature-inner .btn { justify-self: start; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid > div:first-child { grid-column: 1/-1; }
+    }
+    @media (max-width: 440px) {
+      h1 { font-size: 39px; }
+      .service-grid,.process-grid,.check-list,.form-grid,.subscription-steps { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .service-card { min-height: auto; }
+      .contact-form { padding: 22px 18px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid > div:first-child { grid-column: auto; }
+      .wa-float { left: 12px; bottom: 12px; padding: 11px 13px; }
+      .back-top { right: 12px; bottom: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline"></div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#beranda" aria-label="JOEJA BRAND-UP beranda">
+        <div class="brand-mark">J</div>
+        <div class="brand-name">JOEJA BRAND-UP<small>JOGJA BRANDING & BUSINESS DEVELOPMENT</small></div>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Buka navigasi" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#beranda">Beranda</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#tahapan">Alur Program</a>
+        <a href="#langganan">Langganan</a>
+        <a href="#sasaran">Sasaran</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+      <a class="nav-cta" href="#kontak">Konsultasi UMKM <span>↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">Dari Jogja, untuk usaha yang lebih berdaya</div>
+          <h1>Menguatkan Merek,<br><em>Menumbuhkan</em><br>Bisnis Lokal.</h1>
+          <p class="hero-copy">JOEJA BRAND-UP hadir sebagai program pendampingan branding dan pengembangan bisnis bagi UMKM Daerah Istimewa Yogyakarta. Kami membantu pelaku usaha mengenali keunikan produknya, membangun identitas merek, dan memperluas jangkauan pasar melalui strategi yang praktis.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#layanan">Jelajahi Program <span>→</span></a>
+            <a class="btn btn-outline" href="#tentang">Kenali JOEJA BRAND-UP</a>
+          </div>
+          <div class="hero-note"><span style="color:var(--gold);font-size:19px">✦</span><span><strong>Berakar pada potensi lokal.</strong><br>Bergerak melalui kreativitas dan kolaborasi.</span></div>
+        </div>
+        <div class="hero-art reveal">
+          <div class="art-frame">
+            <!-- Ilustrasi vektor orisinal: Tugu Yogyakarta dan ornamen wayang -->
+            <svg viewBox="0 0 620 490" role="img" aria-label="Ilustrasi Tugu Yogyakarta dengan ornamen wayang dan motif batik">
+              <defs>
+                <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8e9c9"/><stop offset="1" stop-color="#dce9d8"/></linearGradient>
+                <linearGradient id="stone" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#d7a65f"/><stop offset=".5" stop-color="#fff0c8"/><stop offset="1" stop-color="#b97937"/></linearGradient>
+                <pattern id="batik" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M21 2 C27 12 35 14 40 21 C30 27 28 35 21 40 C14 30 6 28 2 21 C12 15 14 7 21 2Z" fill="none" stroke="#b47b3e" stroke-width="1.2" opacity=".28"/><circle cx="21" cy="21" r="4" fill="none" stroke="#b47b3e" opacity=".3"/></pattern>
+              </defs>
+              <rect width="620" height="490" fill="url(#sky)"/>
+              <circle cx="490" cy="95" r="48" fill="#e8b96f" opacity=".55"/>
+              <path d="M0 330 Q130 280 245 326 T490 315 T620 325 V490 H0Z" fill="#b8c9a9"/>
+              <path d="M0 380 Q130 330 260 376 T520 365 T620 375 V490 H0Z" fill="#789b76"/>
+              <rect width="620" height="490" fill="url(#batik)" opacity=".42"/>
+              <!-- Tugu -->
+              <g transform="translate(250 67)">
+                <ellipse cx="62" cy="350" rx="105" ry="15" fill="#496c4c" opacity=".25"/>
+                <path d="M-22 350 L-12 326 H136 L146 350Z" fill="#9e713f"/>
+                <path d="M-6 326 L4 304 H120 L130 326Z" fill="url(#stone)" stroke="#9a6c38" stroke-width="2"/>
+                <rect x="13" y="290" width="98" height="14" rx="2" fill="#b77d3c"/>
+                <path d="M25 290 L32 265 H92 L99 290Z" fill="url(#stone)" stroke="#9a6c38" stroke-width="2"/>
+                <rect x="37" y="112" width="50" height="153" fill="url(#stone)" stroke="#9a6c38" stroke-width="2"/>
+                <path d="M37 112 L62 85 L87 112Z" fill="#c38b49" stroke="#9a6c38" stroke-width="2"/>
+                <path d="M47 85 L62 60 L77 85Z" fill="#e5bd79" stroke="#9a6c38" stroke-width="2"/>
+                <path d="M62 60 L62 43" stroke="#9a6c38" stroke-width="4" stroke-linecap="round"/>
+                <path d="M25 145 H99 M25 157 H99 M25 244 H99 M25 255 H99" stroke="#a8753c" stroke-width="3"/>
+                <path d="M46 177 H78 V220 H46Z" fill="#f4e4bd" opacity=".65"/>
+                <path d="M62 177 V220" stroke="#b17b3c" stroke-width="2"/>
+                <path d="M16 265 H108" stroke="#fff0c8" stroke-width="4"/>
+              </g>
+              <!-- Wayang silhouette kiri -->
+              <g transform="translate(58 190)" fill="#16452f" stroke="#16452f" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M55 10 C40 4 29 13 30 28 C31 39 41 44 50 41 C45 53 31 59 19 59 C29 68 43 68 55 60 C64 72 78 77 94 73 C83 63 77 54 76 43 C88 36 88 20 77 12 C69 7 62 8 55 10Z"/>
+                <path d="M52 43 Q40 64 34 96 L22 139 L40 143 L57 101 L64 143 L81 139 L74 94 Q87 81 79 59" />
+                <path d="M35 65 Q15 79 5 101 L13 107 Q31 91 48 86 M75 62 Q94 77 104 96 L96 103 Q80 88 65 85" fill="none" stroke-width="7"/>
+                <path d="M52 10 Q42 -2 53 -9 Q67 -12 73 0 Q68 9 55 10Z" fill="#c77b2c"/>
+                <path d="M48 28 Q60 32 72 27" fill="none" stroke="#e9c88c" stroke-width="2"/>
+                <path d="M24 143 L17 156 M80 143 L89 156" fill="none" stroke-width="5"/>
+              </g>
+              <!-- Wayang silhouette kanan -->
+              <g transform="translate(480 210) scale(.82)" fill="#9c5e27" stroke="#9c5e27" stroke-linecap="round">
+                <path d="M49 9 Q29 4 27 23 Q25 41 44 45 Q39 57 25 62 Q42 73 57 61 Q71 73 88 66 Q75 55 75 43 Q91 31 80 14 Q66 4 49 9Z"/>
+                <path d="M42 44 Q31 76 35 104 L23 139 L40 143 L55 108 L66 143 L83 139 L72 101 Q79 74 66 48Z"/>
+                <path d="M36 64 Q16 76 5 96 L14 104 Q32 88 49 83 M72 62 Q93 74 104 92 L96 101 Q80 86 64 83" fill="none" stroke-width="7"/>
+                <path d="M46 9 Q41 -4 55 -9 Q69 -8 72 3 L63 12Z" fill="#e5b56e"/>
+                <path d="M45 28 Q58 32 70 26" fill="none" stroke="#f8e6c5" stroke-width="2"/>
+                <path d="M25 143 L18 155 M83 143 L91 155" fill="none" stroke-width="5"/>
+              </g>
+              <path d="M0 448 Q150 420 310 448 T620 444" fill="none" stroke="#e9c78f" stroke-width="3" opacity=".8"/>
+              <text x="310" y="466" text-anchor="middle" fill="#16452f" font-family="Georgia,serif" font-size="13" letter-spacing="4">YOGYAKARTA • ISTIMEWA</text>
+            </svg>
+          </div>
+          <div class="floating-seal">LOCAL<br>ROOTS<br>✦</div>
+          <div class="art-caption"><strong>Warisan budaya, semangat usaha.</strong>Identitas Jogja sebagai inspirasi bertumbuh.</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="container trust-grid">
+        <div class="trust-item"><span class="trust-icon">✧</span><div><strong>Berbasis potensi lokal</strong><span>Mengangkat cerita dan keunikan produk DIY</span></div></div>
+        <div class="trust-item"><span class="trust-icon">◈</span><div><strong>Pendampingan bertahap</strong><span>Praktis, terarah, dan sesuai kebutuhan usaha</span></div></div>
+        <div class="trust-item"><span class="trust-icon">⌘</span><div><strong>Penguatan digital</strong><span>Mendukung promosi dan akses pasar lebih luas</span></div></div>
+      </div>
+    </div>
+
+    <section id="tentang">
+      <div class="container about-grid">
+        <div class="about-visual reveal">
+          <svg viewBox="0 0 520 390" role="img" aria-label="Ilustrasi proses kreatif pengembangan produk UMKM">
+            <rect width="520" height="390" rx="20" fill="#e1eadc"/>
+            <circle cx="410" cy="80" r="44" fill="#e7bd7b" opacity=".7"/>
+            <path d="M0 300 Q140 260 260 300 T520 290 V390 H0Z" fill="#b4c9ae"/>
+            <rect x="75" y="150" width="145" height="155" rx="12" fill="#fffaf0" stroke="#c9d7c5" stroke-width="3"/>
+            <rect x="94" y="174" width="108" height="75" rx="6" fill="#d9e6d5"/>
+            <path d="M108 229 Q140 177 185 218" fill="none" stroke="#c77b2c" stroke-width="5"/>
+            <text x="148" y="274" text-anchor="middle" font-family="Georgia,serif" font-size="15" fill="#16452f">BRAND</text>
+            <rect x="250" y="190" width="165" height="115" rx="12" fill="#fffaf0" stroke="#c9d7c5" stroke-width="3"/>
+            <path d="M270 220 H395 M270 240 H375 M270 260 H385" stroke="#a9bba5" stroke-width="7" stroke-linecap="round"/>
+            <path d="M290 190 L315 147 L340 190Z" fill="#c77b2c"/>
+            <rect x="304" y="165" width="23" height="25" fill="#f4d9a9"/>
+            <circle cx="365" cy="112" r="30" fill="#16452f"/>
+            <path d="M352 112 L363 123 L382 99" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M45 335 Q260 310 470 335" fill="none" stroke="#c77b2c" stroke-width="3" stroke-dasharray="7 8"/>
+            <g fill="#c77b2c"><circle cx="68" cy="90" r="5"/><circle cx="450" cy="245" r="7"/><circle cx="235" cy="80" r="4"/></g>
+          </svg>
+          <div class="about-tag">Tumbuh bersama UMKM DIY ✦</div>
+        </div>
+        <div class="about-copy reveal">
+          <div class="eyebrow">Tentang program</div>
+          <h2>Setiap produk punya cerita. Saatnya dikenal lebih luas.</h2>
+          <p>JOEJA BRAND-UP (Jogja Branding and Business Development for UMKM) merupakan rancangan program yang berfokus pada penguatan identitas merek dan pengembangan kapasitas usaha mikro, kecil, dan menengah di Daerah Istimewa Yogyakarta.</p>
+          <p>Program ini mendorong UMKM untuk memahami posisi dan keunggulan produknya, menyampaikan nilai produk secara konsisten, serta memanfaatkan kanal digital dan jejaring lokal untuk mendukung pemasaran.</p>
+          <ul class="check-list">
+            <li><span class="check">✓</span><span>Pemetaan kondisi dan kebutuhan usaha</span></li>
+            <li><span class="check">✓</span><span>Pengembangan identitas merek</span></li>
+            <li><span class="check">✓</span><span>Desain kemasan dan materi promosi</span></li>
+            <li><span class="check">✓</span><span>Penguatan pemasaran digital</span></li>
+            <li><span class="check">✓</span><span>Pendampingan dan konsultasi praktis</span></li>
+            <li><span class="check">✓</span><span>Evaluasi perkembangan merek</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-bg" id="layanan">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Apa yang kami lakukan</div>
+          <h2>Layanan untuk memperkuat perjalanan merek UMKM</h2>
+          <p>Pendampingan disusun secara bertahap agar pelaku usaha dapat menerapkan hasilnya sesuai kapasitas dan kebutuhan bisnis.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card reveal"><span class="service-number">01</span><div class="service-icon">⌕</div><h3>Audit & Pemetaan Usaha</h3><p>Mengenali kondisi usaha, karakter pelanggan, kebutuhan branding, keunggulan produk, dan peluang pengembangan.</p></article>
+          <article class="service-card reveal"><span class="service-number">02</span><div class="service-icon">✧</div><h3>Identitas Merek</h3><p>Mengembangkan nama, logo, warna, tipografi, pesan merek, dan cerita produk agar identitas lebih konsisten.</p></article>
+          <article class="service-card reveal"><span class="service-number">03</span><div class="service-icon">▧</div><h3>Kemasan & Label Produk</h3><p>Menyusun tampilan kemasan dan label yang menarik, informatif, mudah dikenali, serta relevan dengan karakter produk.</p></article>
+          <article class="service-card reveal"><span class="service-number">04</span><div class="service-icon">▤</div><h3>Konten & Katalog Digital</h3><p>Mendukung pembuatan foto produk, katalog, materi promosi, dan konten digital untuk memperkenalkan produk.</p></article>
+          <article class="service-card reveal"><span class="service-number">05</span><div class="service-icon">◎</div><h3>Pemasaran Digital</h3><p>Pelatihan pemanfaatan WhatsApp Business, media sosial, marketplace, dan Google Business Profile.</p></article>
+          <article class="service-card reveal"><span class="service-number">06</span><div class="service-icon">↗</div><h3>Konsultasi & Evaluasi</h3><p>Pendampingan lanjutan untuk meninjau penerapan identitas merek, umpan balik pelanggan, dan perkembangan promosi.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="tahapan">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Alur pendampingan</div>
+          <h2>Langkah sederhana, proses yang terarah</h2>
+          <p>Setiap UMKM memiliki kebutuhan yang berbeda. Karena itu, tahapan pendampingan dapat disesuaikan dengan kondisi dan kesiapan masing-masing usaha.</p>
+        </div>
+        <div class="process-grid">
+          <article class="process-card reveal"><h3>Kenali</h3><p>Diskusi awal, pengumpulan informasi, dan pemetaan kondisi serta kebutuhan UMKM.</p></article>
+          <article class="process-card reveal"><h3>Rancang</h3><p>Menentukan arah merek, keunikan produk, pesan utama, dan konsep identitas visual.</p></article>
+          <article class="process-card reveal"><h3>Kembangkan</h3><p>Membuat atau memperbaiki logo, kemasan, katalog, foto, dan materi promosi.</p></article>
+          <article class="process-card reveal"><h3>Terapkan</h3><p>Melatih penggunaan kanal digital dan menerapkan identitas merek pada kegiatan promosi.</p></article>
+          <article class="process-card reveal"><h3>Evaluasi</h3><p>Meninjau hasil penerapan, mengumpulkan masukan, dan menyusun tindak lanjut.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-bg" id="sasaran">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Untuk siapa program ini</div>
+          <h2>Berangkat dari keragaman usaha Yogyakarta</h2>
+          <p>JOEJA BRAND-UP ditujukan bagi UMKM mikro dan kecil di wilayah DIY, termasuk usaha yang ingin mulai membangun merek maupun memperkuat identitas yang sudah dimiliki.</p>
+        </div>
+        <div class="segments-wrap">
+          <div class="segment-panel reveal">
+            <h3>Bidang usaha sasaran</h3>
+            <div class="chips">
+              <span class="chip">Kuliner & produk olahan</span><span class="chip">Fashion & batik</span><span class="chip">Aksesori</span><span class="chip">Kerajinan & craft</span><span class="chip">Suvenir</span><span class="chip">Oleh-oleh khas Jogja</span><span class="chip">Produk pendukung pariwisata</span>
+            </div>
+          </div>
+          <div class="segment-panel reveal">
+            <h3>Ekosistem pelanggan dan mitra pasar</h3>
+            <div class="chips">
+              <span class="chip gold">Masyarakat lokal</span><span class="chip gold">Wisatawan</span><span class="chip gold">Toko oleh-oleh</span><span class="chip gold">Hotel & penginapan</span><span class="chip gold">Pusat kuliner</span><span class="chip gold">Mitra bisnis</span><span class="chip gold">Marketplace</span>
+            </div>
+            <p style="margin:19px 0 0;color:var(--muted);font-size:12px">Kolaborasi dapat dikembangkan bersama pemerintah daerah, komunitas UMKM, perguruan tinggi, inkubator bisnis, penyedia jasa kreatif, dan pelaku ritel maupun pariwisata.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="feature-band">
+      <div class="container">
+        <div class="feature-inner reveal">
+          <div><h2>Produk lokal layak punya identitas yang kuat.</h2><p>Mulai dari mengenali potensi, merancang merek, hingga memperkenalkan produk melalui kanal yang tepat. Mari tumbuhkan usaha lokal dengan karakter yang membanggakan.</p></div>
+          <a class="btn" href="#kontak">Mulai Konsultasi <span>→</span></a>
+        </div>
+      </div>
+    </div>
+
+
+    <section class="subscription-section" id="langganan">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Keanggotaan & layanan berkelanjutan</div>
+          <h2>Terus bertumbuh bersama JOEJA BRAND-UP.</h2>
+          <p>Pilih skema pendampingan yang sesuai dengan tahap perkembangan usaha. Layanan berlangganan dirancang agar UMKM tidak berhenti setelah memiliki logo, tetapi terus didampingi dalam mengelola merek dan komunikasi pemasaran.</p>
+        </div>
+        <p class="subscription-intro">Setiap paket dapat disesuaikan melalui konsultasi awal. Fokusnya bukan sekadar membuat tampilan menarik, melainkan membantu pelaku usaha menerapkan identitas merek secara konsisten.</p>
+
+        <div class="billing-switch" role="group" aria-label="Pilihan periode pendampingan">
+          <button type="button" class="active" data-period="monthly" aria-pressed="true">Bulanan</button>
+          <button type="button" data-period="quarterly" aria-pressed="false">Paket 3 Bulan</button>
+          <span class="billing-hint">Fleksibel sesuai kebutuhan</span>
+        </div>
+
+        <div class="plan-grid">
+          <article class="plan-card reveal">
+            <div class="plan-kicker">Mulai membangun</div>
+            <h3>Rintis</h3>
+            <p class="plan-desc">Untuk UMKM yang baru memulai atau ingin merapikan fondasi identitas merek.</p>
+            <div class="plan-price">Konsultasi</div>
+            <div class="plan-period" data-monthly="Skema pendampingan bulanan" data-quarterly="Program pendampingan 3 bulan">Skema pendampingan bulanan</div>
+            <div class="plan-divider"></div>
+            <ul class="plan-features">
+              <li><span>✓</span> Konsultasi dan pemetaan kebutuhan merek</li>
+              <li><span>✓</span> Arahan nama, pesan, dan karakter merek</li>
+              <li><span>✓</span> Review dasar logo dan identitas visual</li>
+              <li><span>✓</span> Panduan penggunaan identitas merek</li>
+              <li><span>✓</span> Rekomendasi langkah pengembangan berikutnya</li>
+            </ul>
+            <button class="btn btn-outline choose-plan" type="button" data-plan="Rintis">Pilih Paket Rintis <span>→</span></button>
+          </article>
+
+          <article class="plan-card featured reveal">
+            <div class="plan-ribbon">PILIHAN PENGEMBANGAN</div>
+            <div class="plan-kicker">Bangun konsistensi</div>
+            <h3>Tumbuh</h3>
+            <p class="plan-desc">Untuk UMKM yang ingin menguatkan tampilan produk dan lebih aktif berpromosi.</p>
+            <div class="plan-price">Konsultasi</div>
+            <div class="plan-period" data-monthly="Skema pendampingan bulanan" data-quarterly="Program pendampingan 3 bulan">Skema pendampingan bulanan</div>
+            <div class="plan-divider"></div>
+            <ul class="plan-features">
+              <li><span>✓</span> Seluruh dukungan pada Paket Rintis</li>
+              <li><span>✓</span> Pendampingan desain label atau kemasan</li>
+              <li><span>✓</span> Arahan foto produk dan katalog sederhana</li>
+              <li><span>✓</span> Kalender ide konten promosi</li>
+              <li><span>✓</span> Pendampingan kanal WhatsApp Business dan media sosial</li>
+              <li><span>✓</span> Evaluasi dan rekomendasi perbaikan berkala</li>
+            </ul>
+            <button class="btn btn-primary choose-plan" type="button" data-plan="Tumbuh">Pilih Paket Tumbuh <span>→</span></button>
+          </article>
+
+          <article class="plan-card reveal">
+            <div class="plan-kicker">Pengembangan berkelanjutan</div>
+            <h3>Unggul</h3>
+            <p class="plan-desc">Untuk UMKM yang siap mengembangkan promosi, memperluas kanal, dan membangun jejaring pasar.</p>
+            <div class="plan-price">Konsultasi</div>
+            <div class="plan-period" data-monthly="Skema pendampingan bulanan" data-quarterly="Program pendampingan 3 bulan">Skema pendampingan bulanan</div>
+            <div class="plan-divider"></div>
+            <ul class="plan-features">
+              <li><span>✓</span> Seluruh dukungan pada Paket Tumbuh</li>
+              <li><span>✓</span> Pendampingan strategi konten dan promosi digital</li>
+              <li><span>✓</span> Review katalog dan materi komunikasi produk</li>
+              <li><span>✓</span> Arahan pemanfaatan marketplace dan Google Business Profile</li>
+              <li><span>✓</span> Evaluasi perkembangan merek dan jangkauan promosi</li>
+              <li><span>✓</span> Rekomendasi kolaborasi dan peluang pasar</li>
+            </ul>
+            <button class="btn btn-outline choose-plan" type="button" data-plan="Unggul">Pilih Paket Unggul <span>→</span></button>
+          </article>
+        </div>
+
+        <div class="membership-perks">
+          <span>✦ Materi panduan praktis</span><span>✦ Pendampingan sesuai kebutuhan</span><span>✦ Evaluasi berkala</span><span>✦ Jejaring komunitas UMKM</span>
+        </div>
+        <div class="plan-note"><strong>Informasi paket:</strong> Nama paket dan cakupan layanan di atas merupakan rancangan penawaran JOEJA BRAND-UP. Harga, frekuensi pertemuan, jumlah materi/desain, batas revisi, serta layanan yang termasuk akan ditetapkan melalui kesepakatan tertulis setelah pemetaan kebutuhan. Biaya produksi, cetak, iklan berbayar, dan biaya pihak ketiga dapat dihitung terpisah.</div>
+
+        <div class="subscription-steps">
+          <div class="subscription-step"><strong>01 · Pilih paket</strong><span>Tentukan tingkat pendampingan yang paling mendekati kebutuhan usaha.</span></div>
+          <div class="subscription-step"><strong>02 · Konsultasi awal</strong><span>Diskusikan kondisi usaha, target, dan ruang lingkup layanan.</span></div>
+          <div class="subscription-step"><strong>03 · Sepakati layanan</strong><span>Terima rincian pekerjaan, jadwal, biaya, dan ketentuan berlangganan.</span></div>
+          <div class="subscription-step"><strong>04 · Mulai bertumbuh</strong><span>Jalankan pendampingan dan tinjau perkembangan secara berkala.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontak">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <div class="eyebrow">Mari terhubung</div>
+          <h2>Ceritakan kebutuhan branding usahamu.</h2>
+          <p>Isi formulir berikut untuk menyampaikan profil singkat usaha dan kebutuhan pendampingan. Tim pengelola dapat menindaklanjuti melalui kontak yang dicantumkan.</p>
+          <div class="contact-detail"><div class="service-icon">⌖</div><div><strong>Wilayah program</strong><span>Daerah Istimewa Yogyakarta</span></div></div>
+          <div class="contact-detail"><div class="service-icon">✉</div><div><strong>Informasi program</strong><span>Hubungi pengelola melalui kanal resmi program</span></div></div>
+          <div class="contact-detail"><div class="service-icon">◷</div><div><strong>Skema pendampingan</strong><span>Disesuaikan dengan kebutuhan dan kesiapan UMKM</span></div></div>
+        </div>
+        <form class="contact-form reveal" id="contactForm">
+          <div class="form-grid">
+            <div class="field"><label for="nama">Nama pemilik / penanggung jawab</label><input id="nama" name="nama" required placeholder="Nama lengkap"></div>
+            <div class="field"><label for="usaha">Nama usaha</label><input id="usaha" name="usaha" required placeholder="Nama UMKM"></div>
+            <div class="field"><label for="kategori">Bidang usaha</label><select id="kategori" name="kategori" required><option value="">Pilih bidang usaha</option><option>Kuliner / produk olahan</option><option>Fashion / batik / aksesori</option><option>Kerajinan / suvenir</option><option>Oleh-oleh / pariwisata</option><option>Lainnya</option></select></div>
+            <div class="field"><label for="kontakUser">Nomor WhatsApp</label><input id="kontakUser" name="kontak" required inputmode="tel" placeholder="08xxxxxxxxxx"></div>
+            <div class="field full"><label for="paket">Paket langganan yang diminati</label><select id="paket" name="paket"><option value="Belum menentukan">Belum menentukan</option><option>Rintis</option><option>Tumbuh</option><option>Unggul</option><option>Konsultasi paket khusus</option></select></div>
+            <div class="field full"><label for="kebutuhan">Kebutuhan pendampingan</label><select id="kebutuhan" name="kebutuhan" required><option value="">Pilih kebutuhan utama</option><option>Pembuatan / perbaikan logo dan identitas merek</option><option>Desain kemasan dan label</option><option>Foto produk dan katalog digital</option><option>Media sosial dan pemasaran digital</option><option>Konsultasi pengembangan merek</option><option>Belum tahu, perlu pemetaan kebutuhan</option></select></div>
+            <div class="field full"><label for="cerita">Ceritakan singkat usaha dan kebutuhanmu</label><textarea id="cerita" name="cerita" placeholder="Contoh: produk yang dijual, lama usaha berjalan, kendala branding yang dihadapi..."></textarea></div>
+          </div>
+          <button class="btn btn-primary" type="submit">Kirim Informasi <span>→</span></button>
+          <p class="form-note">Formulir ini merupakan antarmuka awal. Untuk menerima pendaftaran secara langsung, hubungkan formulir dengan WhatsApp resmi, email, atau layanan backend pengelola.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div><div class="footer-brand">JOEJA BRAND-UP<span>JOGJA BRANDING & BUSINESS DEVELOPMENT FOR UMKM</span></div><p>Program pendampingan branding dan pengembangan bisnis untuk mendukung UMKM Daerah Istimewa Yogyakarta agar memiliki identitas merek yang kuat dan mampu berkembang.</p></div>
+        <div><h4>Jelajahi</h4><div class="footer-links"><a href="#tentang">Tentang Program</a><a href="#layanan">Layanan</a><a href="#tahapan">Alur Pendampingan</a><a href="#sasaran">Sasaran Program</a></div></div>
+        <div><h4>Fokus Program</h4><div class="footer-links"><a href="#layanan">Branding & Identitas Merek</a><a href="#layanan">Kemasan & Konten Digital</a><a href="#layanan">Pemasaran Digital</a><a href="#kontak">Konsultasi UMKM</a></div></div>
+      </div>
+      <div class="copyright">© <span id="year"></span> JOEJA BRAND-UP. Dirancang untuk mendukung potensi UMKM Daerah Istimewa Yogyakarta.</div>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="#kontak" aria-label="Hubungi program">☏ <span>Hubungi Kami</span></a>
+  <button class="back-top" id="backTop" aria-label="Kembali ke atas">↑</button>
+
+  <script>
+    // Ganti dengan nomor WhatsApp resmi pengelola, gunakan format internasional tanpa tanda +.
+    // Contoh: const WHATSAPP_NUMBER = "6281234567890";
+    const WHATSAPP_NUMBER = "";
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    menuToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuToggle.textContent = open ? "×" : "☰";
+    });
+    navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.textContent = "☰";
+    }));
+
+    const backTop = document.getElementById("backTop");
+    window.addEventListener("scroll", () => backTop.classList.toggle("show", window.scrollY > 450));
+    backTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+
+    // Pilihan periode paket: tidak menampilkan harga karena biaya ditentukan melalui konsultasi.
+    document.querySelectorAll(".billing-switch button").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".billing-switch button").forEach(item => {
+          item.classList.toggle("active", item === button);
+          item.setAttribute("aria-pressed", String(item === button));
+        });
+        const period = button.dataset.period;
+        document.querySelectorAll(".plan-period").forEach(label => {
+          label.textContent = label.dataset[period];
+        });
+      });
+    });
+
+    // Tombol paket mengarahkan calon pelanggan ke formulir dengan paket terpilih.
+    document.querySelectorAll(".choose-plan").forEach(button => {
+      button.addEventListener("click", () => {
+        const packageSelect = document.getElementById("paket");
+        packageSelect.value = button.dataset.plan;
+        document.getElementById("kontak").scrollIntoView({ behavior: "smooth" });
+        window.setTimeout(() => packageSelect.focus({ preventScroll: true }), 550);
+      });
+    });
+
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const data = new FormData(this);
+      const message = [
+        "Halo, saya ingin berkonsultasi dengan JOEJA BRAND-UP.",
+        "",
+        "Nama: " + data.get("nama"),
+        "Nama usaha: " + data.get("usaha"),
+        "Bidang usaha: " + data.get("kategori"),
+        "WhatsApp: " + data.get("kontak"),
+        "Paket langganan: " + data.get("paket"),
+        "Kebutuhan: " + data.get("kebutuhan"),
+        "Cerita usaha: " + (data.get("cerita") || "-")
+      ].join("\n");
+      if (WHATSAPP_NUMBER) {
+        window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message), "_blank", "noopener");
+      } else {
+        alert("Terima kasih! Data telah disiapkan. Agar formulir dapat mengirim pesan, pengelola perlu mengisi nomor WhatsApp resmi pada bagian WHATSAPP_NUMBER di dalam file index.html.");
+      }
+    });
+  </script>
+</body>
+</html>
